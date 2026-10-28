@@ -1,0 +1,10 @@
+Category,Count,Unit
+Total Prediction Rows (All 5 Seeds),3776.0,Predictions
+Attack Prediction Rows,2500.0,Predictions
+Unique Attack Windows (PROBE),500.0,Unique Windows
+Unique Attack Sessions (PROBE),20.0,Independent Sessions
+Attack Repetitions per Window,5.0,Repeats / Window
+Normal Prediction Rows,1276.0,Predictions
+Unique Normal Windows,901.0,Unique Windows
+Unique Normal Sessions,247.0,Independent Sessions
+Normal Repetitions per Window (Mean),1.42,Repeats / Window

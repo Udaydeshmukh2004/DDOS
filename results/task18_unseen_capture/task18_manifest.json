@@ -1,0 +1,28 @@
+{
+  "task": "Task 18: Independent Mininet Attack Dataset and Unseen-Capture Evaluation",
+  "timestamp": "2026-10-25T17:22:22.673791",
+  "evaluated_models": [
+    "Entropy_Rule_APriori",
+    "Entropy_Rule_ValTuned",
+    "Decision_Tree",
+    "Isolation_Forest",
+    "Collaborative_Hybrid_DT_Entropy"
+  ],
+  "zero_random_forest": true,
+  "capture_sources": {
+    "baseline_benchmark": "data/authentic_insdn_leakage_free.csv",
+    "unseen_mininet_capture": "data/task18_mininet/mininet_unseen_capture.csv"
+  },
+  "file_hashes": {
+    "mininet_capture_csv": "3fc37d593c7dd826d1a9a7a5f1f6b446b8fbb2b99b1e25786b6899c0587f2720",
+    "task18_evaluation_metrics_csv": "41f4cb5996c869f0c282aa59064e6e95249f3fc7471134380f218d0ea4bad7ac",
+    "task18_per_window_predictions_csv": "689206323720028e46115bf63ab35a5903a6777a33ff175e2fd450ee5e6ec99a",
+    "task18_session_detections_csv": "0c459b38ad86b7646ba4d75a1a17578f75d26d2e963b41f951f81900b04c1ffd",
+    "task18_source_diagnostic_folds_csv": "2d97c942ec1151b7ec0f178d9a0a0152a2818437382d0dce0729b7dddce8e826"
+  },
+  "diagnostic_summary": {
+    "mean_dt_source_auc": 0.9894,
+    "mean_lr_source_auc": 1.0,
+    "interpretation": "High source predictability confirms persistent environment-level artifacts between lab captures."
+  }
+}

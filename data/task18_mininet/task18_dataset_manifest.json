@@ -1,0 +1,35 @@
+{
+  "dataset_name": "Mininet Unseen Capture (Task 18)",
+  "output_path": "data/task18_mininet/mininet_unseen_capture.csv",
+  "sha256": "3fc37d593c7dd826d1a9a7a5f1f6b446b8fbb2b99b1e25786b6899c0587f2720",
+  "total_windows": 98,
+  "window_size_sec": 2.0,
+  "total_sessions": 8,
+  "label_distribution": {
+    "1": 51,
+    "0": 47
+  },
+  "attack_type_distribution": {
+    "NORMAL": 47,
+    "PROBE": 19,
+    "UDP_FLOOD": 13,
+    "SYN_FLOOD": 12,
+    "ICMP_FLOOD": 7
+  },
+  "features": [
+    "packet_rate_mean",
+    "packet_rate_max",
+    "byte_rate_mean",
+    "byte_rate_max",
+    "flow_count",
+    "unique_src_count",
+    "unique_dst_count",
+    "src_entropy",
+    "dst_entropy",
+    "packet_entropy",
+    "byte_entropy",
+    "flow_entropy",
+    "entropy_score",
+    "flow_concentration"
+  ]
+}

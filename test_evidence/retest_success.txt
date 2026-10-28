@@ -1,0 +1,14 @@
+============================= test session starts ==============================
+platform linux -- Python 3.14.4, pytest-9.1.1, pluggy-1.7.0 -- /mnt/c/Users/deshm/OneDrive/Desktop/intellishield_sdn-main/.venv/bin/python3
+cachedir: .pytest_cache
+rootdir: /mnt/c/Users/deshm/OneDrive/Desktop/intellishield_sdn-main
+plugins: anyio-4.15.1, typeguard-4.4.4
+collecting ... collected 5 items
+
+tests/test_defect_regression_tc01_tc05.py::test_tc01_telemetry_nan_inf_handling PASSED [ 20%]
+tests/test_defect_regression_tc01_tc05.py::test_tc02_feature_validation_rejects_corrupt_types PASSED [ 40%]
+tests/test_defect_regression_tc01_tc05.py::test_tc03_feature_builder_handles_none_flow_entries PASSED [ 60%]
+tests/test_defect_regression_tc01_tc05.py::test_tc04_registry_promotion_gate_enforcement PASSED [ 80%]
+tests/test_defect_regression_tc01_tc05.py::test_tc05_mitigation_safety_guard_protected_mac PASSED [100%]
+
+============================== 5 passed in 26.76s ==============================

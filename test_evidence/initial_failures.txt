@@ -1,0 +1,59 @@
+============================= test session starts ==============================
+platform linux -- Python 3.14.4, pytest-9.1.1, pluggy-1.7.0 -- /mnt/c/Users/deshm/OneDrive/Desktop/intellishield_sdn-main/.venv/bin/python3
+cachedir: .pytest_cache
+rootdir: /mnt/c/Users/deshm/OneDrive/Desktop/intellishield_sdn-main
+plugins: anyio-4.15.1, typeguard-4.4.4
+collecting ... collected 5 items
+
+tests/test_defect_regression_tc01_tc05.py::test_tc01_telemetry_nan_inf_handling FAILED [ 20%]
+tests/test_defect_regression_tc01_tc05.py::test_tc02_feature_validation_rejects_corrupt_types FAILED [ 40%]
+tests/test_defect_regression_tc01_tc05.py::test_tc03_feature_builder_handles_none_flow_entries FAILED [ 60%]
+tests/test_defect_regression_tc01_tc05.py::test_tc04_registry_promotion_gate_enforcement FAILED [ 80%]
+tests/test_defect_regression_tc01_tc05.py::test_tc05_mitigation_safety_guard_protected_mac FAILED [100%]
+
+=================================== FAILURES ===================================
+_____________________ test_tc01_telemetry_nan_inf_handling _____________________
+tests/test_defect_regression_tc01_tc05.py:40: in test_tc01_telemetry_nan_inf_handling
+    assert not math.isnan(result), f"safe_mean returned NaN on input {telemetry_samples}"
+E   AssertionError: safe_mean returned NaN on input [nan, 10.0, 30.0]
+E   assert not True
+E    +  where True = <built-in function isnan>(nan)
+E    +    where <built-in function isnan> = math.isnan
+______________ test_tc02_feature_validation_rejects_corrupt_types ______________
+tests/test_defect_regression_tc01_tc05.py:58: in test_tc02_feature_validation_rejects_corrupt_types
+    assert validate_vector(corrupt_vector, 15) is False, (
+E   AssertionError: validate_vector incorrectly accepted a list of string values as a valid numeric feature vector
+E   assert True is False
+E    +  where True = validate_vector(['corrupted_metric', 'corrupted_metric', 'corrupted_metric', 'corrupted_metric', 'corrupted_metric', 'corrupted_metric', ...], 15)
+_____________ test_tc03_feature_builder_handles_none_flow_entries ______________
+tests/test_defect_regression_tc01_tc05.py:90: in test_tc03_feature_builder_handles_none_flow_entries
+    assert vector[0] == 50.0, f"Expected packet_rate_mean=50.0, got {vector[0]} (fell back to dummy vector)"
+E   AssertionError: Expected packet_rate_mean=50.0, got 0.0 (fell back to dummy vector)
+E   assert 0.0 == 50.0
+------------------------------ Captured log call -------------------------------
+ERROR    intellishield.feature_builder:feature_builder.py:234 [build] Feature extraction error:
+Traceback (most recent call last):
+  File "/mnt/c/Users/deshm/OneDrive/Desktop/intellishield_sdn-main/ml_models/feature_builder.py", line 167, in build
+    pkt_rates  = [f.get("packet_rate", 0.0) for f in flow_features]
+                  ^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+________________ test_tc04_registry_promotion_gate_enforcement _________________
+tests/test_defect_regression_tc01_tc05.py:121: in test_tc04_registry_promotion_gate_enforcement
+    with pytest.raises(ValueError, match="REJECTED|invalid|cannot promote"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE ValueError
+------------------------------ Captured log call -------------------------------
+WARNING  intellishield.adaptive_learning.model_registry:model_registry.py:120 [AdaptiveModelRegistry] Rejected candidate v2.0-candidate: Accuracy below acceptable threshold
+_______________ test_tc05_mitigation_safety_guard_protected_mac ________________
+tests/test_defect_regression_tc01_tc05.py:142: in test_tc05_mitigation_safety_guard_protected_mac
+    assert _is_safe_to_block("FF:FF:FF:FF:FF:FF") is False, (
+E   AssertionError: Safety guard failed: uppercase broadcast MAC FF:FF:FF:FF:FF:FF was marked safe to block!
+E   assert True is False
+E    +  where True = _is_safe_to_block('FF:FF:FF:FF:FF:FF')
+=========================== short test summary info ============================
+FAILED tests/test_defect_regression_tc01_tc05.py::test_tc01_telemetry_nan_inf_handling
+FAILED tests/test_defect_regression_tc01_tc05.py::test_tc02_feature_validation_rejects_corrupt_types
+FAILED tests/test_defect_regression_tc01_tc05.py::test_tc03_feature_builder_handles_none_flow_entries
+FAILED tests/test_defect_regression_tc01_tc05.py::test_tc04_registry_promotion_gate_enforcement
+FAILED tests/test_defect_regression_tc01_tc05.py::test_tc05_mitigation_safety_guard_protected_mac
+============================== 5 failed in 33.25s ==============================

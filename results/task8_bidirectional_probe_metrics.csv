@@ -1,0 +1,21 @@
+direction,test_normal_variant,train_source,test_source,n_train_attack,n_test_attack,n_test_normal,model,threshold_provenance,tp,fp,tn,fn,recall,precision,fpr,accuracy
+meta2_to_OVS,fixed_209,metasploitable-2,OVS,314,186,209,Decision Tree,Supervised Tree,0,0,209,186,0.0,0.0,0.0,0.5291
+meta2_to_OVS,fixed_209,metasploitable-2,OVS,314,186,209,Random Forest,Supervised Ensemble,85,0,209,101,0.457,1.0,0.0,0.7443
+meta2_to_OVS,fixed_209,metasploitable-2,OVS,314,186,209,Port Entropy (A Priori 0.85),Pre-specified A Priori Rule,185,0,209,1,0.9946,1.0,0.0,0.9975
+meta2_to_OVS,fixed_209,metasploitable-2,OVS,314,186,209,Port Entropy (Val-Tuned 0.74),Validation-Tuned (th=0.7626),185,0,209,1,0.9946,1.0,0.0,0.9975
+meta2_to_OVS,fixed_209,metasploitable-2,OVS,314,186,209,Hybrid with Override (0.85),RF Gated + A Priori Override,185,0,209,1,0.9946,1.0,0.0,0.9975
+meta2_to_OVS,balanced_1to1,metasploitable-2,OVS,314,186,186,Decision Tree,Supervised Tree,0,0,186,186,0.0,0.0,0.0,0.5
+meta2_to_OVS,balanced_1to1,metasploitable-2,OVS,314,186,186,Random Forest,Supervised Ensemble,85,0,186,101,0.457,1.0,0.0,0.7285
+meta2_to_OVS,balanced_1to1,metasploitable-2,OVS,314,186,186,Port Entropy (A Priori 0.85),Pre-specified A Priori Rule,185,0,186,1,0.9946,1.0,0.0,0.9973
+meta2_to_OVS,balanced_1to1,metasploitable-2,OVS,314,186,186,Port Entropy (Val-Tuned 0.74),Validation-Tuned (th=0.7626),185,0,186,1,0.9946,1.0,0.0,0.9973
+meta2_to_OVS,balanced_1to1,metasploitable-2,OVS,314,186,186,Hybrid with Override (0.85),RF Gated + A Priori Override,185,0,186,1,0.9946,1.0,0.0,0.9973
+OVS_to_meta2,fixed_209,OVS,metasploitable-2,186,314,209,Decision Tree,Supervised Tree,215,0,209,99,0.6847,1.0,0.0,0.8107
+OVS_to_meta2,fixed_209,OVS,metasploitable-2,186,314,209,Random Forest,Supervised Ensemble,276,0,209,38,0.879,1.0,0.0,0.9273
+OVS_to_meta2,fixed_209,OVS,metasploitable-2,186,314,209,Port Entropy (A Priori 0.85),Pre-specified A Priori Rule,230,0,209,84,0.7325,1.0,0.0,0.8394
+OVS_to_meta2,fixed_209,OVS,metasploitable-2,186,314,209,Port Entropy (Val-Tuned 0.74),Validation-Tuned (th=0.7626),235,0,209,79,0.7484,1.0,0.0,0.8489
+OVS_to_meta2,fixed_209,OVS,metasploitable-2,186,314,209,Hybrid with Override (0.85),RF Gated + A Priori Override,235,0,209,79,0.7484,1.0,0.0,0.8489
+OVS_to_meta2,balanced_1to1,OVS,metasploitable-2,186,314,209,Decision Tree,Supervised Tree,215,0,209,99,0.6847,1.0,0.0,0.8107
+OVS_to_meta2,balanced_1to1,OVS,metasploitable-2,186,314,209,Random Forest,Supervised Ensemble,276,0,209,38,0.879,1.0,0.0,0.9273
+OVS_to_meta2,balanced_1to1,OVS,metasploitable-2,186,314,209,Port Entropy (A Priori 0.85),Pre-specified A Priori Rule,230,0,209,84,0.7325,1.0,0.0,0.8394
+OVS_to_meta2,balanced_1to1,OVS,metasploitable-2,186,314,209,Port Entropy (Val-Tuned 0.74),Validation-Tuned (th=0.7626),235,0,209,79,0.7484,1.0,0.0,0.8489
+OVS_to_meta2,balanced_1to1,OVS,metasploitable-2,186,314,209,Hybrid with Override (0.85),RF Gated + A Priori Override,235,0,209,79,0.7484,1.0,0.0,0.8489

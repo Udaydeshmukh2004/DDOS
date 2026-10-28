@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IntelliShield DDoS Dashboard</title>
+  <meta name="description" content="IntelliShield SDN DDoS detection, verification, mitigation monitoring, and lab control." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/soc/css/soc.css" />
+  <script src="/soc/js/vendor/chart.umd.min.js"></script>
+  <script>
+    if (typeof Chart === 'undefined') {
+      document.write('<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"><\/script>');
+    }
+    if (window.location.protocol === 'file:') {
+      window.addEventListener('DOMContentLoaded', function() {
+        document.body.innerHTML = '<div style="font-family: system-ui, sans-serif; padding: 40px; max-width: 650px; margin: 40px auto; background: #0f172a; color: #f8fafc; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 1px solid #38bdf8;">' +
+          '<h2 style="color: #38bdf8; margin-top: 0;">⚠️ IntelliShield SDN Dashboard</h2>' +
+          '<p style="font-size: 15px; line-height: 1.6;">You opened this dashboard directly as a local file (<code>file:///...</code>). Modern browsers block local file access to API endpoints and JavaScript modules.</p>' +
+          '<div style="background: #1e293b; padding: 16px; border-radius: 8px; border-left: 4px solid #38bdf8; margin: 20px 0;">' +
+          '<p style="margin: 0; font-weight: bold; color: #38bdf8;">To view the live dashboard:</p>' +
+          '<p style="margin: 8px 0 0 0; font-size: 15px;">Open your web browser and navigate to:</p>' +
+          '<p style="margin: 8px 0 0 0; font-family: monospace; font-size: 18px; color: #22c55e;"><strong>http://localhost:8080</strong> &nbsp;or&nbsp; <strong>http://127.0.0.1:8080</strong></p>' +
+          '</div>' +
+          '<p style="color: #94a3b8; font-size: 13px;">Ensure the backend API server is running (<code>python3 dashboard/api.py</code>).</p>' +
+          '</div>';
+      });
+    }
+  </script>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar" aria-label="DDoS Dashboard navigation">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">IS</div>
+        <div>
+          <h1>IntelliShield</h1>
+          <span>DDoS Dashboard</span>
+        </div>
+      </div>
+
+      <p class="section-title">OVERVIEW</p>
+      <a class="nav-item active" href="#dashboard"><span class="nav-icon">◆</span> Dashboard</a>
+      <a class="nav-item" href="#traffic"><span class="nav-icon">▣</span> Traffic Monitor</a>
+      <a class="nav-item" href="#topology"><span class="nav-icon">⬡</span> Network Topology</a>
+
+      <p class="section-title">DETECTION</p>
+      <a class="nav-item" href="#detection"><span class="nav-icon">◎</span> Detection Intelligence</a>
+      <a class="nav-item" href="#correlation"><span class="nav-icon">⇄</span> R4 Correlation</a>
+      <a class="nav-item" href="#fusion"><span class="nav-icon">⊕</span> Collaborative Fusion</a>
+      <a class="nav-item" href="#verification"><span class="nav-icon">✓</span> Verification</a>
+      <a class="nav-item" href="#adaptive"><span class="nav-icon">Δ</span> Adaptive RL / Drift</a>
+      <a class="nav-item" href="#automl"><span class="nav-icon">⚡</span> Online AutoML</a>
+
+      <p class="section-title">RESPONSE</p>
+      <a class="nav-item" href="#mitigation"><span class="nav-icon">◼</span> Mitigation Status</a>
+      <a class="nav-item" href="#alerts"><span class="nav-icon">!</span> Security Alerts</a>
+      <a class="nav-item" href="#events"><span class="nav-icon">☰</span> Security Events</a>
+      <a class="nav-item" href="#rca"><span class="nav-icon">?</span> Root Cause / XAI</a>
+
+      <p class="section-title">RESEARCH / LAB</p>
+      <a class="nav-item" href="#twin"><span class="nav-icon">◌</span> Digital Twin <span class="nav-tag">LIVE B</span></a>
+      <a class="nav-item" href="#lab-control"><span class="nav-icon">⚡</span> Lab Control <span class="nav-tag">WRITE</span></a> <!-- #attack-lab -->
+
+      <p class="section-title">OPERATIONS</p>
+      <a class="nav-item" href="#health"><span class="nav-icon">♥</span> System Health</a>
+      <a class="nav-item" href="#reports"><span class="nav-icon">▤</span> Reports</a>
+      <a class="nav-item" href="#commands"><span class="nav-icon">⌘</span> Command Center <span class="nav-tag">SAFE</span></a>
+      <a class="nav-item" href="#settings"><span class="nav-icon">⚙</span> Settings</a>
+
+      <div class="sidebar-bottom">
+        Primary UI. Legacy fallback:
+        <a href="/legacy">/legacy</a>
+      </div>
+    </aside>
+
+    <main class="main">
+      <div class="topbar">
+        <div>
+          <button type="button" id="sidebar-toggle" aria-label="Toggle navigation">Menu</button>
+          <h2 id="topbar-title">Dashboard</h2>
+        </div>
+        <div class="topbar-actions">
+          <span class="observer-pill" id="mode-pill">SOC · Observer · OPERATIONAL</span>
+          <button type="button" id="refresh-btn" title="Refresh current view"><span class="spin-icon">↻</span> Refresh</button>
+        </div>
+      </div>
+      <div id="page-root" aria-live="polite"></div>
+    </main>
+  </div>
+
+  <script type="module" src="/soc/js/app.js"></script>
+</body>
+</html>

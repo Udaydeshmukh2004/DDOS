@@ -1,0 +1,9 @@
+session_id,has_attack,attack_types,total_windows,flagged_windows,session_detected
+session_01_benign_light,0,NONE,8,8,1
+session_02_syn_flood,1,SYN_FLOOD,12,6,1
+session_03_udp_flood,1,UDP_FLOOD,12,5,1
+session_04_icmp_flood,1,ICMP_FLOOD,12,6,1
+session_05_benign_bursty,0,NONE,9,9,1
+session_06_port_scan_probe,1,PROBE,13,13,1
+session_07_unseen_multivector_test,1,"PROBE,SYN_FLOOD",16,11,1
+session_08_unseen_eval_scenario,1,"UDP_FLOOD,PROBE",16,10,1

@@ -1,0 +1,10 @@
+protocol,model_architecture,paradigm,tp,fp,tn,fn,total,accuracy,recall,recall_ci_low,recall_ci_high,precision,fpr,fpr_ci_low,fpr_ci_high,f1_score,balanced_accuracy
+Protocol_1_ZeroShot_InSDN_to_Mininet,Entropy_Rule_APriori,Rule-Based Heuristic,11,38,9,40,98,0.2041,0.2157,12.49,34.63,0.2245,0.8085,67.45,89.58,0.22,0.2036
+Protocol_1_ZeroShot_InSDN_to_Mininet,Entropy_Rule_ValTuned,Validation-Tuned Heuristic,25,39,8,26,98,0.3367,0.4902,35.86,62.32,0.3906,0.8298,69.86,91.11,0.4348,0.3302
+Protocol_1_ZeroShot_InSDN_to_Mininet,Decision_Tree,Supervised Tree (Trained on InSDN),21,47,0,30,98,0.2143,0.4118,28.76,54.84,0.3088,1.0,92.44,100.0,0.3529,0.2059
+Protocol_1_ZeroShot_InSDN_to_Mininet,Isolation_Forest,Unsupervised ML (Trained on InSDN),51,47,0,0,98,0.5204,1.0,93.0,100.0,0.5204,1.0,92.44,100.0,0.6846,0.5
+Protocol_1_ZeroShot_InSDN_to_Mininet,Collaborative_Hybrid_DT_Entropy,Collaborative Hybrid (DT + Entropy),21,47,0,30,98,0.2143,0.4118,28.76,54.84,0.3088,1.0,92.44,100.0,0.3529,0.2059
+Protocol_2_InDomain_SessionDisjoint,Entropy_Rule_APriori,Rule-Based Heuristic,5,10,0,17,32,0.1562,0.2273,10.12,43.44,0.3333,1.0,72.25,100.0,0.2703,0.1137
+Protocol_2_InDomain_SessionDisjoint,Entropy_Rule_ValTuned,Validation-Tuned Heuristic,11,10,0,11,32,0.3438,0.5,30.72,69.28,0.5238,1.0,72.25,100.0,0.5116,0.25
+Protocol_2_InDomain_SessionDisjoint,Decision_Tree,Supervised Tree (Trained on Mininet S1-4),13,0,10,9,32,0.7188,0.5909,38.73,76.74,1.0,0.0,0.0,27.75,0.7428,0.7954
+Protocol_2_InDomain_SessionDisjoint,Collaborative_Hybrid_DT_Entropy,Collaborative Hybrid (DT + Entropy),18,10,0,4,32,0.5625,0.8182,61.48,92.69,0.6429,1.0,72.25,100.0,0.72,0.4091

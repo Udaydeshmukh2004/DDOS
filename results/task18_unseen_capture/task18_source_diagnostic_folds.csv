@@ -1,0 +1,6 @@
+fold,train_samples,test_samples,train_sessions,test_sessions,test_insdn_count,test_mininet_count,dt_source_auc,lr_source_auc,session_overlap
+1,2477,621,423,93,600,21,1.0,1.0,0
+2,2477,621,409,107,600,21,1.0,1.0,0
+3,2482,616,414,102,600,16,0.9688,1.0,0
+4,2482,616,410,106,600,16,0.9992,1.0,0
+5,2474,624,408,108,600,24,0.9792,1.0,0

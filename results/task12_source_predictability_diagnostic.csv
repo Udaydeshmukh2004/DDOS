@@ -1,0 +1,3 @@
+diagnostic,metric_value,std
+Logistic Regression 5-fold CV Source AUC,0.9862,0.0023
+Decision Tree (depth 3) 5-fold CV Source AUC,0.9799,0.005

@@ -1,0 +1,268 @@
+{
+  "manifest_version": "1.0",
+  "timestamp": "2026-10-25T08:55:00+05:30",
+  "benchmark_dataset": {
+    "path": "data/authentic_insdn_leakage_free.csv",
+    "sha256": "30b49f285bd0d39c00dad9d93c5029b6fd4529c7c7993ec65956d8ab41207fc7",
+    "total_windows": 3000,
+    "normal_windows": 1369,
+    "attack_windows": 1631,
+    "attack_type_distribution": {
+      "NORMAL": 1369,
+      "DDOS": 600,
+      "DOS": 500,
+      "PROBE": 500,
+      "BRUTE_FORCE": 28,
+      "BOTNET": 3
+    }
+  },
+  "environment": {
+    "python_version": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+    "scikit_learn_version": "1.9.1",
+    "pandas_version": "2.3.3",
+    "numpy_version": "2.5.4"
+  },
+  "model_architecture": {
+    "supervised_baseline": "DecisionTreeClassifier(max_depth=4, min_samples_leaf=3, random_state=seed)",
+    "rule_based_a_priori": "Entropy_Rule_Based_APriori (H_port >= 0.85)",
+    "rule_based_val_tuned": "Entropy_Rule_Based_ValTuned (H_port >= th_p OR C_flow >= th_c via validation grid search)",
+    "collaborative_hybrid": "Non_RF_Hybrid_DT_Entropy (Gated: H_port>=0.85 -> 1, p>=0.75 -> 1, p<=0.25 -> 0, else Val-tuned entropy)",
+    "random_forest_models_present": false
+  },
+  "reproduced_results": {
+    "probe_unique_windows": 500,
+    "probe_unique_sessions": 20,
+    "probe_detection_attribution": {
+      "both_dt_and_entropy": 297,
+      "dt_only_metasploitable2": 17,
+      "dt_only_ovs": 1,
+      "entropy_only_ovs": 185,
+      "total_union": 500,
+      "missed_windows": 0
+    },
+    "probe_hybrid_window_recall": "500 / 500 (100.00%)",
+    "probe_hybrid_session_detection": "20 / 20 (100.00%)",
+    "probe_session_wilson_95_ci": [
+      83.89,
+      100.0
+    ],
+    "decision_tree_seed42_recall": "315 / 500 (63.00%)",
+    "benchmark_normal_fpr": "1 / 1369 (0.07%)",
+    "source_predictability_grouped_auc": {
+      "decision_tree_mean": 0.8204,
+      "decision_tree_std": 0.325,
+      "logistic_regression_mean": 0.765,
+      "logistic_regression_std": 0.43
+    }
+  },
+  "splits_manifest": {
+    "PROBE": {
+      "42": {
+        "n_train": 1457,
+        "n_val": 786,
+        "n_test": 757,
+        "train_sessions_count": 309,
+        "val_sessions_count": 104,
+        "test_sessions_count": 95,
+        "test_unseen_count": 500,
+        "test_normal_count": 257
+      },
+      "101": {
+        "n_train": 1756,
+        "n_val": 451,
+        "n_test": 793,
+        "train_sessions_count": 309,
+        "val_sessions_count": 104,
+        "test_sessions_count": 95,
+        "test_unseen_count": 500,
+        "test_normal_count": 293
+      },
+      "777": {
+        "n_train": 1839,
+        "n_val": 401,
+        "n_test": 760,
+        "train_sessions_count": 309,
+        "val_sessions_count": 104,
+        "test_sessions_count": 95,
+        "test_unseen_count": 500,
+        "test_normal_count": 260
+      },
+      "999": {
+        "n_train": 1916,
+        "n_val": 374,
+        "n_test": 710,
+        "train_sessions_count": 309,
+        "val_sessions_count": 104,
+        "test_sessions_count": 95,
+        "test_unseen_count": 500,
+        "test_normal_count": 210
+      },
+      "2026": {
+        "n_train": 1437,
+        "n_val": 807,
+        "n_test": 756,
+        "train_sessions_count": 309,
+        "val_sessions_count": 104,
+        "test_sessions_count": 95,
+        "test_unseen_count": 500,
+        "test_normal_count": 256
+      }
+    },
+    "DDOS": {
+      "42": {
+        "n_train": 1675,
+        "n_val": 468,
+        "n_test": 857,
+        "train_sessions_count": 321,
+        "val_sessions_count": 108,
+        "test_sessions_count": 79,
+        "test_unseen_count": 600,
+        "test_normal_count": 257
+      },
+      "101": {
+        "n_train": 1473,
+        "n_val": 634,
+        "n_test": 893,
+        "train_sessions_count": 321,
+        "val_sessions_count": 108,
+        "test_sessions_count": 79,
+        "test_unseen_count": 600,
+        "test_normal_count": 293
+      },
+      "777": {
+        "n_train": 1639,
+        "n_val": 501,
+        "n_test": 860,
+        "train_sessions_count": 321,
+        "val_sessions_count": 108,
+        "test_sessions_count": 79,
+        "test_unseen_count": 600,
+        "test_normal_count": 260
+      },
+      "999": {
+        "n_train": 1652,
+        "n_val": 538,
+        "n_test": 810,
+        "train_sessions_count": 321,
+        "val_sessions_count": 108,
+        "test_sessions_count": 79,
+        "test_unseen_count": 600,
+        "test_normal_count": 210
+      },
+      "2026": {
+        "n_train": 1685,
+        "n_val": 459,
+        "n_test": 856,
+        "train_sessions_count": 321,
+        "val_sessions_count": 108,
+        "test_sessions_count": 79,
+        "test_unseen_count": 600,
+        "test_normal_count": 256
+      }
+    },
+    "DOS": {
+      "42": {
+        "n_train": 1708,
+        "n_val": 535,
+        "n_test": 757,
+        "train_sessions_count": 250,
+        "val_sessions_count": 84,
+        "test_sessions_count": 174,
+        "test_unseen_count": 500,
+        "test_normal_count": 257
+      },
+      "101": {
+        "n_train": 1676,
+        "n_val": 531,
+        "n_test": 793,
+        "train_sessions_count": 250,
+        "val_sessions_count": 84,
+        "test_sessions_count": 174,
+        "test_unseen_count": 500,
+        "test_normal_count": 293
+      },
+      "777": {
+        "n_train": 1793,
+        "n_val": 447,
+        "n_test": 760,
+        "train_sessions_count": 250,
+        "val_sessions_count": 84,
+        "test_sessions_count": 174,
+        "test_unseen_count": 500,
+        "test_normal_count": 260
+      },
+      "999": {
+        "n_train": 1867,
+        "n_val": 423,
+        "n_test": 710,
+        "train_sessions_count": 250,
+        "val_sessions_count": 84,
+        "test_sessions_count": 174,
+        "test_unseen_count": 500,
+        "test_normal_count": 210
+      },
+      "2026": {
+        "n_train": 1581,
+        "n_val": 663,
+        "n_test": 756,
+        "train_sessions_count": 250,
+        "val_sessions_count": 84,
+        "test_sessions_count": 174,
+        "test_unseen_count": 500,
+        "test_normal_count": 256
+      }
+    },
+    "BRUTE_FORCE": {
+      "42": {
+        "n_train": 1907,
+        "n_val": 808,
+        "n_test": 84,
+        "train_sessions_count": 317,
+        "val_sessions_count": 107,
+        "test_sessions_count": 44,
+        "test_unseen_count": 28,
+        "test_normal_count": 56
+      },
+      "101": {
+        "n_train": 1768,
+        "n_val": 911,
+        "n_test": 84,
+        "train_sessions_count": 317,
+        "val_sessions_count": 107,
+        "test_sessions_count": 43,
+        "test_unseen_count": 28,
+        "test_normal_count": 56
+      },
+      "777": {
+        "n_train": 2166,
+        "n_val": 546,
+        "n_test": 84,
+        "train_sessions_count": 317,
+        "val_sessions_count": 107,
+        "test_sessions_count": 40,
+        "test_unseen_count": 28,
+        "test_normal_count": 56
+      },
+      "999": {
+        "n_train": 2359,
+        "n_val": 403,
+        "n_test": 84,
+        "train_sessions_count": 317,
+        "val_sessions_count": 107,
+        "test_sessions_count": 48,
+        "test_unseen_count": 28,
+        "test_normal_count": 56
+      },
+      "2026": {
+        "n_train": 2180,
+        "n_val": 536,
+        "n_test": 84,
+        "train_sessions_count": 317,
+        "val_sessions_count": 107,
+        "test_sessions_count": 43,
+        "test_unseen_count": 28,
+        "test_normal_count": 56
+      }
+    }
+  }
+}

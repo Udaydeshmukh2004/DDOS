@@ -1,0 +1,28 @@
+{
+  "task": "Task 19: Adversarial Audit of Task 18 Cross-Dataset Results",
+  "timestamp": "2026-10-25T17:48:50.249827",
+  "audit_verdict": "VERIFIED_WITH_SCIENTIFIC_GROUNDING",
+  "exact_counts": {
+    "raw_packets": 216213,
+    "mininet_windows": 98,
+    "normal_windows": 47,
+    "attack_windows": 51,
+    "protocol2_test_windows": 32,
+    "boundary_windows": 8
+  },
+  "forensic_resolutions": {
+    "isolation_forest_100pct_fpr": "Explained by cross-testbed feature scale shift; InSDN normal baseline had lower flow/packet rates than active Mininet lab.",
+    "dt_hybrid_matrix_identity": "Explained by DT predicting positive on all normal windows due to rate scale shift, matching the hybrid's entropy override.",
+    "source_diagnostic_auc_1.0": "Driven primarily by packet/byte rate scales and flow count differences between InSDN and Mininet testbeds."
+  },
+  "file_hashes": {
+    "insdn_benchmark": "30b49f285bd0d39c00dad9d93c5029b6fd4529c7c7993ec65956d8ab41207fc7",
+    "mininet_capture_csv": "3fc37d593c7dd826d1a9a7a5f1f6b446b8fbb2b99b1e25786b6899c0587f2720",
+    "raw_packets_csv": "e3d1525d9f47ff8d469275918cfeff22869f2853c4114e16001d0a6a3ab4555a",
+    "schedule_json": "ec13f3e5f24b2184986eb9f6ed3043aff1841a861feb66a9a9cb2f3e8bc9ddb6",
+    "task19_recomputed_metrics_csv": "41f4cb5996c869f0c282aa59064e6e95249f3fc7471134380f218d0ea4bad7ac",
+    "task19_discrepancy_table_csv": "3138f365a4da19e2c92d7287959dd51785f6fab549257063a79fa2160c201fa2",
+    "task19_feature_audit_csv": "ae0fcc6d2c5e9e7e7af464d9d7f6fe1fb3202ebe8df4ef325bd3ff3205caf09b",
+    "task19_boundary_audit_csv": "4aa22f1150cd694e13fbdbebb2e5fc36017cee18303ffa9cf1270ef0a65430e5"
+  }
+}

@@ -1,0 +1,12 @@
+item,reported_value,recomputed_value,status,explanation
+Raw Packet Count,"216,213","216,213",CONFIRMED_EXACT,Exact line count in data/task18_mininet/raw/raw_packet_stream.csv.
+Total Mininet Windows,98,98,CONFIRMED_EXACT,Exact row count in data/task18_mininet/mininet_unseen_capture.csv.
+Normal Window Count,47,47,CONFIRMED_EXACT,Windows with ground_truth == 0 across all 8 sessions.
+Attack Window Count,51,51,CONFIRMED_EXACT,Windows with ground_truth == 1 across all 8 sessions.
+Protocol 1 Hybrid Confusion Matrix,"TP=21, FP=47, TN=0, FN=30","TP=21, FP=47, TN=0, FN=30",CONFIRMED_EXACT,Recomputed directly from per-window predictions; 100% agreement.
+Protocol 1 Isolation Forest FPR,100.00% (47/47 FP),100.00% (47/47 FP),CONFIRMED_EXACT,All 47 normal Mininet windows have negative anomaly score due to testbed scale shift.
+Protocol 1 DT vs Hybrid Matrix Identity,"Identical aggregate counts (TP=21, FP=47, TN=0, FN=30)",Identical aggregate counts,CONFIRMED_EXACT,"Because DT predicted 1.0 on all 47 normal windows, the hybrid's entropy override produced no net change on normal windows; on attack windows, DT and entropy hits overlapped."
+Protocol 2 Test Split Size,32 windows (Sessions 7 & 8),32 windows (Sessions 7 & 8),CONFIRMED_EXACT,Session 7 (16 windows) + Session 8 (16 windows) = 32 windows.
+Protocol 2 DT Performance,"TP=13, FP=0, TN=10, FN=9 (FPR=0.00%)","TP=13, FP=0, TN=10, FN=9 (FPR=0.00%)",CONFIRMED_EXACT,"When trained in-domain on Mininet S1-4, DT achieves 0% false positives on test normal windows."
+Mean Source Diagnostic LR AUC,1.0000,1.0000,CONFIRMED_EXACT,Logistic regression separates InSDN and Mininet with 1.0000 across all 5 folds.
+Report Text Typo (Sec 4 & 5 intro),N=164 in text intro (prior to correction) / N=50,N=98 (total) / N=32 (test),RESOLVED_IN_TASK18_AUDIT,Initial template text referenced planned 164-window duration; actual run produced 98 windows (32 in Protocol 2 test). Tables already held correct values.

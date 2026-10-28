@@ -1,0 +1,21 @@
+session_group,capture_source,total_windows,detected_windows_rf,detected_windows_ent,detected_windows_hyb,session_detected_rf,session_detected_ent,session_detected_hyb,mean_port_entropy,mean_rf_prob
+OVS_26/12/2019 01:28:26 PM,OVS,44,0,44,44,0,1,1,1.0,0.4597
+OVS_26/12/2019 01:56:04 PM,OVS,32,0,32,32,0,1,1,1.0,0.4591
+OVS_26/12/2019 01:56:25 PM,OVS,27,0,27,27,0,1,1,1.0,0.4619
+OVS_26/12/2019 01:27:30 PM,OVS,25,0,25,25,0,1,1,1.0,0.4516
+OVS_26/12/2019 01:26:32 PM,OVS,23,0,23,23,0,1,1,1.0,0.4633
+OVS_26/12/2019 01:55:18 PM,OVS,8,0,8,8,0,1,1,1.0,0.4607
+OVS_26/12/2019 01:26:13 PM,OVS,7,0,7,7,0,1,1,1.0,0.4572
+OVS_26/12/2019 01:27:49 PM,OVS,6,0,6,6,0,1,1,1.0,0.4672
+OVS_26/12/2019 01:27:50 PM,OVS,6,0,6,6,0,1,1,1.0,0.4719
+OVS_26/12/2019 01:27:12 PM,OVS,4,0,4,4,0,1,1,1.0,0.4553
+OVS_26/12/2019 01:26:12 PM,OVS,1,0,1,1,0,1,1,1.0,0.4858
+OVS_26/12/2019 01:26:31 PM,OVS,1,0,1,1,0,1,1,1.0,0.4472
+OVS_26/12/2019 01:27:31 PM,OVS,1,0,1,1,0,1,1,1.0,0.4805
+OVS_26/12/2019 02:32:34 PM,OVS,1,1,0,1,1,0,1,0.6135,0.9144
+metasploitable-2_9/1/2020 16:30,metasploitable-2,70,70,69,70,1,1,1,0.5963,0.9956
+metasploitable-2_9/1/2020 16:32,metasploitable-2,70,70,64,70,1,1,1,0.8989,0.9894
+metasploitable-2_9/1/2020 17:32,metasploitable-2,63,63,63,63,1,1,1,1.0,1.0
+metasploitable-2_9/1/2020 16:29,metasploitable-2,47,47,47,47,1,1,1,0.4031,0.9969
+metasploitable-2_9/1/2020 16:31,metasploitable-2,32,32,22,32,1,1,1,0.7142,0.9803
+metasploitable-2_9/1/2020 16:33,metasploitable-2,32,32,32,32,1,1,1,1.0,0.995

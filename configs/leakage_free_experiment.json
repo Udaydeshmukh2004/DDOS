@@ -1,0 +1,48 @@
+{
+  "experiment_name": "Authentic InSDN LOATO Evaluation (Leakage-Free)",
+  "pipeline_version": "v2.0.0-leakage-free",
+  "dataset_name": "InSDN: A Novel SDN Intrusion Dataset",
+  "official_archive_sha256": "ee89ec66705c529fef26b27dd18c6aa56d469006f7ade9cd92fd4a503e320d7d",
+  "benchmark_csv_path": "data/authentic_insdn_leakage_free.csv",
+  "benchmark_csv_sha256": "30b49f285bd0d39c00dad9d93c5029b6fd4529c7c7993ec65956d8ab41207fc7",
+  "total_benchmark_windows": 3000,
+  "window_size_flows": 50,
+  "class_distribution": {
+    "NORMAL": 1369,
+    "DDOS": 600,
+    "DOS": 500,
+    "PROBE": 500,
+    "BRUTE_FORCE": 28,
+    "BOTNET": 3
+  },
+  "features_15": [
+    "packet_rate_mean",
+    "packet_rate_max",
+    "byte_rate_mean",
+    "byte_rate_max",
+    "flow_count",
+    "duration_mean",
+    "unique_src_count",
+    "unique_dst_count",
+    "src_entropy",
+    "dst_entropy",
+    "packet_entropy",
+    "byte_entropy",
+    "flow_entropy",
+    "entropy_score",
+    "flow_concentration"
+  ],
+  "eligible_loato_families": [
+    "DDOS",
+    "DOS",
+    "PROBE",
+    "BRUTE_FORCE"
+  ],
+  "random_seeds": [
+    42,
+    101,
+    2026,
+    777,
+    999
+  ]
+}

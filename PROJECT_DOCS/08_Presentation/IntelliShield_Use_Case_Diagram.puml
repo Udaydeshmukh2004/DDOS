@@ -1,0 +1,82 @@
+@startuml Figure_5_1_IntelliShield_Use_Case_Diagram
+' ==============================================================================
+' IntelliShield SDN — Figure 5.1: Use Case Diagram
+' Multi-Stage Autonomous SDN Security Architecture with XAI & Adaptive Learning
+' Note: Pure SDN Functional Use Cases (No Login / Logout Overhead)
+' ==============================================================================
+
+skinparam handwritten false
+skinparam monochrome false
+skinparam shadowing false
+skinparam defaultFontName "Segoe UI", Arial, sans-serif
+skinparam defaultFontSize 12
+skinparam roundCorner 10
+
+skinparam actor {
+    BackgroundColor #FFFFFF
+    BorderColor #1E293B
+    FontColor #0F172A
+    FontSize 13
+    FontStyle bold
+}
+
+skinparam usecase {
+    BackgroundColor #FFFFFF
+    BorderColor #1E293B
+    BorderThickness 1.3
+    FontColor #0F172A
+    FontSize 11
+    FontStyle bold
+    ArrowColor #1E293B
+    ArrowThickness 1.2
+}
+
+skinparam rectangle {
+    BackgroundColor #FFFFFF
+    BorderColor #1E293B
+    BorderThickness 1.4
+    FontColor #0F172A
+    FontSize 13
+    FontStyle bold
+}
+
+' Actors outside system boundary
+actor "Security Analyst /\nOperator" as Analyst
+actor "Admin" as Admin
+
+' System Boundary
+rectangle "IntelliShield-SDN" {
+    usecase "Monitor Network Traffic & Flow Stats" as UC1
+    usecase "Analyze Shannon Traffic Entropy" as UC2
+    usecase "Detect DDoS Attacks via ML & SSL" as UC3
+    usecase "Correlate & Fuse Cross-Layer Signals" as UC4
+    usecase "Verify Suspicious Traffic (Multi-Stage)" as UC5
+    usecase "View Real-Time SOC Dashboard" as UC6
+    usecase "View XAI Explanations & Root Cause" as UC7
+    usecase "Review Quarantined & Blocked Flows" as UC8
+    usecase "Apply OpenFlow Mitigation Rules" as UC9
+    usecase "Configure Monitoring & Drift Thresholds" as UC10
+    usecase "Export Security Alerts & Audit Logs" as UC11
+}
+
+' Operator / Analyst Associations
+Analyst -- UC1
+Analyst -- UC2
+Analyst -- UC3
+Analyst -- UC4
+Analyst -- UC5
+Analyst -- UC6
+Analyst -- UC11
+
+' Administrator Associations
+Admin -- UC1
+Admin -- UC6
+Admin -- UC7
+Admin -- UC8
+Admin -- UC9
+Admin -- UC10
+Admin -- UC11
+
+footer \n//Figure 5.1: Use case diagram//\nIntelliShield SDN Project — Chapter 5 Architecture Specification
+
+@enduml

@@ -1,0 +1,129 @@
+{
+  "local_mininet_offline": {
+    "file": "logs/ml_features.csv",
+    "sha256": "9c916f419090d71ef458907200ba24690954010ef498fc7e1b3471c266006934",
+    "rows_total": 191,
+    "rows_valid_labeled": 191,
+    "columns": [
+      "timestamp",
+      "switch_id",
+      "label",
+      "packet_rate_mean",
+      "packet_rate_max",
+      "byte_rate_mean",
+      "byte_rate_max",
+      "flow_count",
+      "duration_mean",
+      "unique_src_count",
+      "unique_dst_count",
+      "src_entropy",
+      "dst_entropy",
+      "packet_entropy",
+      "byte_entropy",
+      "flow_entropy",
+      "entropy_score",
+      "flow_concentration"
+    ],
+    "class_counts_all": {
+      "0": 132,
+      "1": 59
+    },
+    "class_counts_valid": {
+      "0": 132,
+      "1": 59
+    },
+    "duplicates": 0,
+    "origin": "Physical Mininet testbed OpenFlow polling telemetry across 4 attack scenarios",
+    "verification_status": "VERIFIED (Genuine Local Testbed Telemetry)"
+  },
+  "live_telemetry_cycles": {
+    "file": "logs/ml_predictions.csv",
+    "sha256": "152587327a5a5804bb667eb9f28be4a542d603d7114973490ce855204b36a732",
+    "rows": 24,
+    "columns": [
+      "timestamp",
+      "switch_id",
+      "status",
+      "confidence",
+      "iso_score",
+      "dt_label",
+      "dt_confidence",
+      "attack_type_hint",
+      "src_entropy",
+      "dst_entropy",
+      "entropy_score",
+      "packet_rate_mean",
+      "flow_count"
+    ],
+    "actual_class_counts": {
+      "ATTACK": 21,
+      "NORMAL": 3
+    },
+    "predicted_class_counts": {
+      "NORMAL": 12,
+      "ATTACK": 12
+    },
+    "origin": "Live controller online monitoring cycles (5-second intervals, total 120s runtime)",
+    "limitations": "Severely biased sample: 21 attack intervals, only 3 benign intervals. Statistically inadequate to establish operational FPR.",
+    "verification_status": "VERIFIED RAW LOGS (INSUFFICIENT SAMPLE SIZE FOR OPERATIONAL READINESS)"
+  },
+  "insdn_benchmark_file": {
+    "file": "data/insdn_benchmark_mapped.csv",
+    "sha256": "54825918154c8a6c259097a28b669649d162f3a34a9c50f35624c7cbd8450068",
+    "rows": 500,
+    "columns": [
+      "packet_rate_mean",
+      "packet_rate_max",
+      "byte_rate_mean",
+      "byte_rate_max",
+      "flow_count",
+      "duration_mean",
+      "unique_src_count",
+      "unique_dst_count",
+      "src_entropy",
+      "dst_entropy",
+      "packet_entropy",
+      "byte_entropy",
+      "flow_entropy",
+      "entropy_score",
+      "flow_concentration",
+      "label",
+      "attack_type"
+    ],
+    "class_counts": {
+      "0": 325,
+      "1": 175
+    },
+    "attack_type_counts": {
+      "NORMAL": 325,
+      "SYN_FLOOD": 75,
+      "UDP_FLOOD": 50,
+      "PROBE_SCAN": 50
+    },
+    "duplicates": 0,
+    "generator_script": "scripts/prepare_public_sdn_dataset.py",
+    "is_raw_public_data": false,
+    "provenance_assessment": "SYNTHETIC PARAMETRIC SIMULATION: Constructed via NumPy parametric random draws (gamma, normal, beta, uniform) configured to emulate statistical distributions described in Elsayed et al. (IEEE Access 2020). It does NOT contain raw packets or flows from the original public InSDN repository.",
+    "verification_status": "BLOCKED AS PUBLIC BENCHMARK (VERIFIED AS SYNTHETIC SIMULATION ONLY)"
+  },
+  "controller_stats": {
+    "file": "logs/controller_stats.csv",
+    "sha256": "2fc9e2a3f995dd1f22ffd1eacaf53bab39418f3f0e6a5cf926dd64756cff4bf3",
+    "rows": 764,
+    "rss_mb_mean": 207.62,
+    "rss_mb_peak": 216.91,
+    "cpu_percent_mean": 0.0,
+    "measurement_method": "psutil process polling of controller PID during physical testbed run",
+    "verification_status": "VERIFIED (Genuine Resource Telemetry)"
+  },
+  "port_stats": {
+    "file": "logs/port_stats.csv",
+    "sha256": "b9f557bfda8dd24b6cf48b7e5994a5c04f709c17eeba6c123226d2e0f243ebd2",
+    "rows": 1036,
+    "total_packets": 548617,
+    "total_port_errors": 0,
+    "total_port_dropped": 0,
+    "provenance_assessment": "Port counters record switch interface statistics. Port errors = 0 confirms physical/virtual link frame integrity, but does NOT measure network queue buffer drops or controller-dropped packets.",
+    "verification_status": "MISINTERPRETED CLAIM (CRC Link Frame Integrity != Zero Buffer Loss)"
+  }
+}

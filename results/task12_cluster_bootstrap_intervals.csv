@@ -1,0 +1,6 @@
+model_architecture,window_recall_pt,window_wilson_95,cluster_boot_win_95,session_recall_pt,session_wilson_95,cluster_boot_sess_95
+Entropy_Rule_Based_APriori,83.0,"[79.46%, 86.04%]","[70.63%, 96.06%]",95.0,"[76.39%, 99.11%]","[85.0%, 100.0%]"
+Entropy_Rule_Based_ValTuned,96.4,"[94.38%, 97.71%]","[91.69%, 99.78%]",95.0,"[76.39%, 99.11%]","[85.0%, 100.0%]"
+Isolation_Forest_Unsupervised,96.0,"[93.9%, 97.4%]","[90.98%, 99.77%]",95.0,"[76.39%, 99.11%]","[85.0%, 100.0%]"
+Decision_Tree_Supervised,63.0,"[58.68%, 67.12%]","[29.62%, 84.66%]",35.0,"[18.12%, 56.71%]","[15.0%, 55.0%]"
+Non_RF_Hybrid_DT_Entropy,100.0,"[99.24%, 100.0%]","[100.0%, 100.0%]",100.0,"[83.89%, 100.0%]","[100.0%, 100.0%]"

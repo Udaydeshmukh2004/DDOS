@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2026-10-27T10:00:00.000Z" agent="IntelliShield SDN" version="22.1.0" type="device">
+  <diagram id="intellishield_usecase" name="IntelliShield-SDN Use Case Diagram">
+    <mxGraphModel dx="1422" dy="1200" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1280" pageHeight="1300" background="#FFFFFF" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- System Boundary Box -->
+        <mxCell id="boundary" value="IntelliShield-SDN System Boundary" style="shape=swimlane;whiteSpace=wrap;html=1;startSize=32;swimlaneFillColor=#FFFFFF;strokeColor=#1E293B;strokeWidth=2;fontStyle=1;fontSize=14;fontColor=#1E293B;fillColor=#FFFFFF;collapsible=0;rounded=1;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="280" y="70" width="680" height="1100" as="geometry" />
+        </mxCell>
+
+        <!-- Left Actor: Security Analyst / SOC Operator -->
+        <mxCell id="actor_analyst" value="Security Analyst /&#xa;SOC Operator" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;strokeColor=#1E293B;strokeWidth=2;fillColor=#F8FAFC;fontStyle=1;fontSize=13;fontColor=#0F172A;" vertex="1" parent="1">
+          <mxGeometry x="90" y="550" width="70" height="140" as="geometry" />
+        </mxCell>
+
+        <!-- Right Actor: Network Administrator -->
+        <mxCell id="actor_admin" value="Network&#xa;Administrator" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;strokeColor=#1E293B;strokeWidth=2;fillColor=#F8FAFC;fontStyle=1;fontSize=13;fontColor=#0F172A;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="550" width="70" height="140" as="geometry" />
+        </mxCell>
+
+        <!-- Use Case Ellipses -->
+        <mxCell id="uc_1" value="Monitor Network Traffic & Flow Statistics" style="ellipse;whiteSpace=wrap;html=1;strokeColor=#1E293B;strokeWidth=2;fillColor=#FFFFFF;fontStyle=1;fontSize=12;fontColor=#0F172A;shadow=0;" vertex="1" parent="boundary">
+          <mxGeometry x="90" y="140" width="500" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="uc_2" value="Analyze Shannon Traffic Entropy" style="ellipse;whiteSpace=wrap;html=1;strokeColor=#1E293B;strokeWidth=2;fillColor=#FFFFFF;fontStyle=1;fontSize=12;fontColor=#0F172A;shadow=0;" vertex="1" parent="boundary">
+          <mxGeometry x="90" y="230" width="500" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="uc_3" value="Detect DDoS Attacks via ML & SSL Autoencoder" style="ellipse;whiteSpace=wrap;html=1;strokeColor=#1E293B;strokeWidth=2;fillColor=#FFFFFF;fontStyle=1;fontSize=12;fontColor=#0F172A;shadow=0;" vertex="1" parent="boundary">
+          <mxGeometry x="90" y="320" width="500" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="uc_4" value="Correlate & Fuse Cross-Layer Signals" style="ellipse;whiteSpace=wrap;html=1;strokeColor=#1E293B;strokeWidth=2;fillColor=#FFFFFF;fontStyle=1;fontSize=12;fontColor=#0F172A;shadow=0;" vertex="1" parent="boundary">
+          <mxGeometry x="90" y="410" width="500" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="uc_5" value="Verify Suspicious Traffic (Multi-Stage Verification)" style="ellipse;whiteSpace=wrap;html=1;strokeColor=#1E293B;strokeWidth=2;fillColor=#FFFFFF;fontStyle=1;fontSize=12;fontColor=#0F172A;shadow=0;" vertex="1" parent="boundary">
+          <mxGeometry x="90" y="500" width="500" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="uc_6" value="View Real-Time SOC Dashboard & Analytics" style="ellipse;whiteSpace=wrap;html=1;strokeColor=#1E293B;strokeWidth=2;fillColor=#FFFFFF;fontStyle=1;fontSize=12;fontColor=#0F172A;shadow=0;" vertex="1" parent="boundary">
+          <mxGeometry x="90" y="590" width="500" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="uc_7" value="View XAI Explanations & Root Cause Reports" style="ellipse;whiteSpace=wrap;html=1;strokeColor=#1E293B;strokeWidth=2;fillColor=#FFFFFF;fontStyle=1;fontSize=12;fontColor=#0F172A;shadow=0;" vertex="1" parent="boundary">
+          <mxGeometry x="90" y="680" width="500" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="uc_8" value="Review Quarantined & Blocked Flows" style="ellipse;whiteSpace=wrap;html=1;strokeColor=#1E293B;strokeWidth=2;fillColor=#FFFFFF;fontStyle=1;fontSize=12;fontColor=#0F172A;shadow=0;" vertex="1" parent="boundary">
+          <mxGeometry x="90" y="770" width="500" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="uc_9" value="Apply & Enforce OpenFlow Mitigation Rules" style="ellipse;whiteSpace=wrap;html=1;strokeColor=#1E293B;strokeWidth=2;fillColor=#FFFFFF;fontStyle=1;fontSize=12;fontColor=#0F172A;shadow=0;" vertex="1" parent="boundary">
+          <mxGeometry x="90" y="860" width="500" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="uc_10" value="Configure Monitoring & Drift Thresholds" style="ellipse;whiteSpace=wrap;html=1;strokeColor=#1E293B;strokeWidth=2;fillColor=#FFFFFF;fontStyle=1;fontSize=12;fontColor=#0F172A;shadow=0;" vertex="1" parent="boundary">
+          <mxGeometry x="90" y="950" width="500" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="uc_11" value="Export Security Alerts & Audit Logs" style="ellipse;whiteSpace=wrap;html=1;strokeColor=#1E293B;strokeWidth=2;fillColor=#FFFFFF;fontStyle=1;fontSize=12;fontColor=#0F172A;shadow=0;" vertex="1" parent="boundary">
+          <mxGeometry x="90" y="1040" width="500" height="58" as="geometry" />
+        </mxCell>
+
+        <!-- Actor Connection Lines (Analyst) -->
+        <mxCell id="edge_analyst_uc_1" style="endArrow=none;html=1;strokeColor=#1E293B;strokeWidth=1.8;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.33;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="actor_analyst" target="uc_1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_analyst_uc_2" style="endArrow=none;html=1;strokeColor=#1E293B;strokeWidth=1.8;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.33;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="actor_analyst" target="uc_2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_analyst_uc_3" style="endArrow=none;html=1;strokeColor=#1E293B;strokeWidth=1.8;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.33;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="actor_analyst" target="uc_3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_analyst_uc_4" style="endArrow=none;html=1;strokeColor=#1E293B;strokeWidth=1.8;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.33;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="actor_analyst" target="uc_4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_analyst_uc_5" style="endArrow=none;html=1;strokeColor=#1E293B;strokeWidth=1.8;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.33;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="actor_analyst" target="uc_5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_analyst_uc_6" style="endArrow=none;html=1;strokeColor=#1E293B;strokeWidth=1.8;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.33;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="actor_analyst" target="uc_6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_analyst_uc_11" style="endArrow=none;html=1;strokeColor=#1E293B;strokeWidth=1.8;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.33;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="actor_analyst" target="uc_11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Actor Connection Lines (Admin) -->
+        <mxCell id="edge_admin_uc_1" style="endArrow=none;html=1;strokeColor=#1E293B;strokeWidth=1.8;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.33;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="actor_admin" target="uc_1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_admin_uc_6" style="endArrow=none;html=1;strokeColor=#1E293B;strokeWidth=1.8;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.33;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="actor_admin" target="uc_6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_admin_uc_7" style="endArrow=none;html=1;strokeColor=#1E293B;strokeWidth=1.8;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.33;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="actor_admin" target="uc_7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_admin_uc_8" style="endArrow=none;html=1;strokeColor=#1E293B;strokeWidth=1.8;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.33;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="actor_admin" target="uc_8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_admin_uc_9" style="endArrow=none;html=1;strokeColor=#1E293B;strokeWidth=1.8;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.33;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="actor_admin" target="uc_9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_admin_uc_10" style="endArrow=none;html=1;strokeColor=#1E293B;strokeWidth=1.8;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.33;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="actor_admin" target="uc_10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_admin_uc_11" style="endArrow=none;html=1;strokeColor=#1E293B;strokeWidth=1.8;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.33;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="actor_admin" target="uc_11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

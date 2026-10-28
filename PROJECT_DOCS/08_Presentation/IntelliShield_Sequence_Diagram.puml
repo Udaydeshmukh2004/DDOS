@@ -1,0 +1,97 @@
+@startuml
+!theme plain
+skinparam defaultFontName "DejaVu Sans"
+skinparam defaultFontSize 11
+skinparam sequenceArrowThickness 1.4
+skinparam roundcorner 6
+skinparam sequenceLifeLineBorderColor #475569
+skinparam sequenceLifeLineBackgroundColor #E2E8F0
+skinparam participantBackgroundColor #F8FAFC
+skinparam participantBorderColor #1E293B
+skinparam participantFontColor #0F172A
+skinparam participantFontStyle bold
+
+title Figure 4.2.1 — End-to-End Operational Sequence Diagram for IntelliShield SDN
+
+actor "User\n(Admin/Analyst)" as Admin #E0E7FF
+participant "SOC Dashboard\n(FastAPI UI :8080)" as UI #EFF6FF
+participant "SDN Controller\n(flow_monitor)" as Controller #F0FDF4
+participant "OpenFlow Switch\n(Mininet OVS Fabric)" as Switch #FEF3C7
+participant "Detection Engine\n(Entropy+ML+SSL)" as Detect #F5F3FF
+participant "Correlation & Fusion\n(R4 & R6 Engines)" as Fusion #FDF2F8
+participant "Verification Gate\n(R7 Multi-Stage)" as Verify #FFFBEB
+participant "Mitigation & Alerts\n(FlowBlocker+R5/R8)" as Mitigate #FEE2E2
+
+autonumber 1
+
+== Phase 1: Authentication & Telemetry Polling ==
+Admin -> UI: Open dashboard
+activate Admin
+activate UI
+Admin -> UI: Login (credentials)
+UI -> UI: Validate credentials & session token
+UI --> Admin: Login success (JWT token)
+
+Admin -> UI: Start monitoring session
+UI -> Controller: Subscribe to telemetry stream (:8080 API)
+activate Controller
+Controller -> Switch: Send OFPPortStatsRequest & OFPFlowStatsRequest
+activate Switch
+Switch --> Controller: Return flow & port statistics (OFPStatsReply)
+deactivate Switch
+Controller -> Controller: Extract 15-D feature vector (FeatureBuilder)
+
+== Phase 2: Multi-Layer Detection Pipeline ==
+Controller -> Detect: Forward telemetry for detection
+activate Detect
+Detect -> Detect: Compute Shannon Entropy (5 dimensions)
+Detect -> Detect: Predict ML status & confidence (IF + DT ensemble)
+Detect -> Detect: SSL Autoencoder reconstruction MSE
+Detect --> Controller: Detection results (ML, Entropy, SSL)
+deactivate Detect
+
+== Phase 3: Cross-Layer Correlation & Collaborative Fusion ==
+Controller -> Fusion: Send signals for cross-layer correlation
+activate Fusion
+Fusion -> Fusion: Correlate IP/port co-occurrence (R4 Engine)
+Fusion -> Fusion: Multi-primary collaborative fusion (R6 Engine)
+Fusion --> Controller: Fused decision (ATTACK / SUSPICIOUS / NORMAL)
+deactivate Fusion
+
+== Phase 4: Multi-Stage Verification Gate (R7) ==
+Controller -> Verify: Submit candidate for multi-stage verification
+activate Verify
+Verify -> Verify: Evaluate warmup status & streak confirmation (R7)
+Verify --> Controller: Verification result: ATTACK confirmed (mitigation_eligible=True)
+deactivate Verify
+
+== Phase 5: Automated OpenFlow Mitigation & Alert Persistence ==
+Controller -> Mitigate: Dispatch mitigation action
+activate Mitigate
+Mitigate -> Mitigate: Determine surgical match (FLOW_PAIR / SRC_MAC)
+Mitigate -> Switch: Install OFPFlowMod DROP rule (priority=100, hard_timeout)
+activate Switch
+Switch --> Mitigate: DROP rule active on data plane (packets dropped)
+deactivate Switch
+Mitigate -> Mitigate: Generate XAI feature importance & RCA report (R5)
+Mitigate -> Mitigate: Store incident JSONL & dispatch alert email (R8)
+Mitigate --> Controller: Mitigation & alerting acknowledgement
+deactivate Mitigate
+
+== Phase 6: SOC Observability & Operator Management ==
+Controller --> UI: Push real-time event & mitigated telemetry (WebSocket)
+UI --> Admin: Display attack alert, XAI explanation & flow stats on UI
+
+Admin -> UI: Inspect blocked flows & RCA report
+UI -> Controller: Fetch active block list & RCA details
+Controller --> UI: Return active block list & RCA data
+UI --> Admin: Display RCA explanation & flow stats
+
+Admin -> UI: Logout
+UI --> Admin: End session & close socket
+deactivate UI
+deactivate Admin
+deactivate Controller
+
+@enduml
+

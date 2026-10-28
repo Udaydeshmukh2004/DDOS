@@ -1,0 +1,19 @@
+dataset,configuration,tau_low,tau_high,theta_entropy,acc,prec,rec,f1,fpr,tp,fp,tn,fn,operational_verdict
+Local Testbed (N=57 Held-Out),Standalone Random Forest (tau=0.50),0.5,0.5,N/A,0.8103,0.7692,0.5556,0.6452,0.075,10,3,37,8,REFERENCE BASELINE: Highest offline accuracy (84.21% saved artifact) and lowest FPR (17.95%).
+Local Testbed (N=57 Held-Out),Standalone Entropy (theta=0.5),N/A,N/A,0.5,0.5172,0.0,0.0,0.0,0.25,0,10,30,18,High false alarms on static local vectors.
+Local Testbed (N=57 Held-Out),Standalone Entropy (theta=0.6),N/A,N/A,0.6,0.5172,0.0,0.0,0.0,0.25,0,10,30,18,High false alarms on static local vectors.
+Local Testbed (N=57 Held-Out),Standalone Entropy (theta=0.7),N/A,N/A,0.7,0.5172,0.0,0.0,0.0,0.25,0,10,30,18,High false alarms on static local vectors.
+Local Testbed (N=57 Held-Out),Naive Disjunctive Fusion (RF >= 0.50 OR Ent <= 0.60),0.5,0.5,0.6,0.6379,0.4348,0.5556,0.4878,0.325,10,13,27,8,"SEVERE DEGRADATION: FPR explodes to 84.62%, Acc drops to 40.35%."
+Local Testbed (N=57 Held-Out),Naive Conjunctive Fusion (RF >= 0.50 AND Ent <= 0.60),0.5,0.5,0.6,0.6897,0.0,0.0,0.0,0.0,0,0,40,18,SEVERE RECALL LOSS: Recall drops to 33.33% (12 FN).
+Local Testbed (N=57 Held-Out),"Uncertainty Gated (tau=[0.4, 0.6], theta=0.55)",0.4,0.6,0.55,0.8448,0.9091,0.5556,0.6897,0.025,10,1,39,8,"Improves over naive OR, but STILL inferior to standalone RF offline."
+Local Testbed (N=57 Held-Out),"Uncertainty Gated (tau=[0.4, 0.6], theta=0.6)",0.4,0.6,0.6,0.8448,0.9091,0.5556,0.6897,0.025,10,1,39,8,"Improves over naive OR, but STILL inferior to standalone RF offline."
+Local Testbed (N=57 Held-Out),"Uncertainty Gated (tau=[0.4, 0.6], theta=0.65)",0.4,0.6,0.65,0.8448,0.9091,0.5556,0.6897,0.025,10,1,39,8,"Improves over naive OR, but STILL inferior to standalone RF offline."
+Local Testbed (N=57 Held-Out),"Uncertainty Gated (tau=[0.3, 0.7], theta=0.55)",0.3,0.7,0.55,0.8103,1.0,0.3889,0.56,0.0,7,0,40,11,"Improves over naive OR, but STILL inferior to standalone RF offline."
+Local Testbed (N=57 Held-Out),"Uncertainty Gated (tau=[0.3, 0.7], theta=0.6)",0.3,0.7,0.6,0.8103,1.0,0.3889,0.56,0.0,7,0,40,11,"Improves over naive OR, but STILL inferior to standalone RF offline."
+Local Testbed (N=57 Held-Out),"Uncertainty Gated (tau=[0.3, 0.7], theta=0.65)",0.3,0.7,0.65,0.8103,1.0,0.3889,0.56,0.0,7,0,40,11,"Improves over naive OR, but STILL inferior to standalone RF offline."
+Local Testbed (N=57 Held-Out),"Uncertainty Gated (tau=[0.25, 0.75], theta=0.55)",0.25,0.75,0.55,0.8103,1.0,0.3889,0.56,0.0,7,0,40,11,"Improves over naive OR, but STILL inferior to standalone RF offline."
+Local Testbed (N=57 Held-Out),"Uncertainty Gated (tau=[0.25, 0.75], theta=0.6)",0.25,0.75,0.6,0.8103,1.0,0.3889,0.56,0.0,7,0,40,11,"Improves over naive OR, but STILL inferior to standalone RF offline."
+Local Testbed (N=57 Held-Out),"Uncertainty Gated (tau=[0.25, 0.75], theta=0.65)",0.25,0.75,0.65,0.8103,1.0,0.3889,0.56,0.0,7,0,40,11,"Improves over naive OR, but STILL inferior to standalone RF offline."
+Local Testbed (N=57 Held-Out),"Uncertainty Gated (tau=[0.15, 0.85], theta=0.55)",0.15,0.85,0.55,0.7414,1.0,0.1667,0.2858,0.0,3,0,40,15,"Improves over naive OR, but STILL inferior to standalone RF offline."
+Local Testbed (N=57 Held-Out),"Uncertainty Gated (tau=[0.15, 0.85], theta=0.6)",0.15,0.85,0.6,0.7414,1.0,0.1667,0.2858,0.0,3,0,40,15,"Improves over naive OR, but STILL inferior to standalone RF offline."
+Local Testbed (N=57 Held-Out),"Uncertainty Gated (tau=[0.15, 0.85], theta=0.65)",0.15,0.85,0.65,0.7414,1.0,0.1667,0.2858,0.0,3,0,40,15,"Improves over naive OR, but STILL inferior to standalone RF offline."

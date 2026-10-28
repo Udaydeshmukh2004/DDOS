@@ -1,0 +1,156 @@
+{
+  "timestamp": "2026-10-25T17:12:17.203807",
+  "topology": "IntelliShieldTopo (1 switch, 5 hosts)",
+  "hosts": {
+    "h1": {
+      "ip": "10.0.0.1",
+      "role": "attacker"
+    },
+    "h2": {
+      "ip": "10.0.0.2",
+      "role": "victim_server (HTTP:80, iperf:5001/5002)"
+    },
+    "h3": {
+      "ip": "10.0.0.3",
+      "role": "legitimate_client"
+    },
+    "h4": {
+      "ip": "10.0.0.4",
+      "role": "legitimate_client"
+    },
+    "h5": {
+      "ip": "10.0.0.5",
+      "role": "legitimate_client"
+    }
+  },
+  "total_sessions": 8,
+  "sessions": [
+    {
+      "session_id": "session_01_benign_light",
+      "description": "Benign baseline HTTP requests and periodic ping traffic",
+      "session_start": 1792948121.9836245,
+      "session_end": 1792948138.524895,
+      "active_attacks": []
+    },
+    {
+      "session_id": "session_02_syn_flood",
+      "description": "Controlled TCP SYN Flood attack against h2:80",
+      "session_start": 1792948140.537954,
+      "session_end": 1792948164.5946648,
+      "active_attacks": [
+        {
+          "attack_type": "SYN_FLOOD",
+          "start_time": 1792948146.5496898,
+          "end_time": 1792948158.5859947,
+          "attacker": "h1 (10.0.0.1)",
+          "target": "h2 (10.0.0.2)",
+          "command": "hping3 -S -p 80 -i u1000 10.0.0.2 > /dev/null 2>&1 &"
+        }
+      ]
+    },
+    {
+      "session_id": "session_03_udp_flood",
+      "description": "High-bandwidth UDP flood against h2:5001",
+      "session_start": 1792948166.5992317,
+      "session_end": 1792948190.657621,
+      "active_attacks": [
+        {
+          "attack_type": "UDP_FLOOD",
+          "start_time": 1792948172.6135936,
+          "end_time": 1792948184.6502266,
+          "attacker": "h1 (10.0.0.1)",
+          "target": "h2 (10.0.0.2)",
+          "command": "iperf -c 10.0.0.2 -u -b 20M -t 20 > /dev/null 2>&1 &"
+        }
+      ]
+    },
+    {
+      "session_id": "session_04_icmp_flood",
+      "description": "High-rate ICMP ping flood against h2",
+      "session_start": 1792948192.6735346,
+      "session_end": 1792948216.7258947,
+      "active_attacks": [
+        {
+          "attack_type": "ICMP_FLOOD",
+          "start_time": 1792948198.68788,
+          "end_time": 1792948210.7163746,
+          "attacker": "h1 (10.0.0.1)",
+          "target": "h2 (10.0.0.2)",
+          "command": "hping3 --icmp -i u1000 10.0.0.2 > /dev/null 2>&1 &"
+        }
+      ]
+    },
+    {
+      "session_id": "session_05_benign_bursty",
+      "description": "Benign bursty traffic: large HTTP transfers and multi-host ping",
+      "session_start": 1792948218.7300062,
+      "session_end": 1792948236.7966692,
+      "active_attacks": []
+    },
+    {
+      "session_id": "session_06_port_scan_probe",
+      "description": "Port Scan PROBE: TCP SYN sweep across destination ports 20-100",
+      "session_start": 1792948238.8086193,
+      "session_end": 1792948264.8791213,
+      "active_attacks": [
+        {
+          "attack_type": "PROBE",
+          "start_time": 1792948244.822517,
+          "end_time": 1792948258.8733804,
+          "attacker": "h1 (10.0.0.1)",
+          "target": "h2 (10.0.0.2)",
+          "command": "hping3 --scan 20-100 -S 10.0.0.2 > /dev/null 2>&1 &"
+        }
+      ]
+    },
+    {
+      "session_id": "session_07_unseen_multivector_test",
+      "description": "Multi-vector test: Port Scan followed by targeted SYN flood burst",
+      "session_start": 1792948266.884657,
+      "session_end": 1792948299.2372937,
+      "active_attacks": [
+        {
+          "attack_type": "PROBE",
+          "start_time": 1792948272.8966248,
+          "end_time": 1792948282.9170377,
+          "attacker": "h1 (10.0.0.1)",
+          "target": "h2 (10.0.0.2)",
+          "command": "hping3 --scan 20-80 -S 10.0.0.2 > /dev/null 2>&1 &"
+        },
+        {
+          "attack_type": "SYN_FLOOD",
+          "start_time": 1792948282.9170418,
+          "end_time": 1792948293.2260325,
+          "attacker": "h1 (10.0.0.1)",
+          "target": "h2 (10.0.0.2)",
+          "command": "hping3 -S -p 80 -i u1500 10.0.0.2 > /dev/null 2>&1 &"
+        }
+      ]
+    },
+    {
+      "session_id": "session_08_unseen_eval_scenario",
+      "description": "Final evaluation scenario: UDP flood burst and wide port sweep",
+      "session_start": 1792948301.2412434,
+      "session_end": 1792948333.3104336,
+      "active_attacks": [
+        {
+          "attack_type": "UDP_FLOOD",
+          "start_time": 1792948307.252822,
+          "end_time": 1792948317.2874854,
+          "attacker": "h1 (10.0.0.1)",
+          "target": "h2 (10.0.0.2)",
+          "command": "iperf -c 10.0.0.2 -u -b 15M -t 15 > /dev/null 2>&1 &"
+        },
+        {
+          "attack_type": "PROBE",
+          "start_time": 1792948317.287488,
+          "end_time": 1792948327.3036656,
+          "attacker": "h1 (10.0.0.1)",
+          "target": "h2 (10.0.0.2)",
+          "command": "hping3 --scan 80-150 -S 10.0.0.2 > /dev/null 2>&1 &"
+        }
+      ]
+    }
+  ],
+  "total_raw_packets_captured": 216213
+}
